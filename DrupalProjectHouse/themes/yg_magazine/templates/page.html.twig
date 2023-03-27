@@ -1,0 +1,218 @@
+
+<main class="main oh" id="main">
+<!-- Topbar -->
+<section id="topbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <ul>
+          <li><h5>
+            <a >{% if news_update_link_text|render is not empty %}{{ news_update_link_text }}{% endif %}</a>
+          </h5></li>
+          {% if facebook_url|render is not empty %}
+            <li><a href="{{ facebook_url }}"><i class="fa fa-facebook"></i></a></li>
+          {% endif %} 
+          {% if twitter_url|render is not empty %}
+           <li><a href="{{ twitter_url }}"><i class="fa fa-twitter"></i></a></li>
+          {% endif %}
+          {% if youtube_url|render is not empty %}
+            <li><a href="{{ youtube_url }}"><i class="fa fa-youtube"></i></a></li>
+          {% endif %} 
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Topbar-End -->
+<!-- Header -->
+  <section class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 logo">
+           <!-- Logo -->
+          <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home""><img src="{{ logopath }}"></a>
+        </div> 
+         <div class="col-md-8 col-sm-6 col-xs-12">        
+          <!-- Ad-Banner -->
+          {{ page.ad_banner }}
+        </div>
+        
+      </div>
+    </div>
+  </section> 
+<!-- Header End--> 
+<!-- Navigation -->
+  <nav id="menu" class="navbar navbar-default">
+    <div class="container">    
+      <div class="navbar-header">
+      {% if page.primary_menu %}
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#magazine_collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      {% endif %}    
+      </div>  
+      <div class="collapse navbar-collapse" id="magazine_collapse">
+        {% if page.primary_menu %}
+          <ul class="nav navbar-nav">                                                       
+            {{ page.primary_menu }}
+          </ul>
+        {% endif %}  
+      </div>   
+    </div>
+  </nav>
+<!-- Navigation End-->
+{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+{# Main #}
+{% block main %}
+<section id="magazing-listing" class="magazine-list-details">
+  <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+    <div class="row">
+
+      {# Header #}
+      {% if page.header %}
+        {% block header %}
+          <div class="col-sm-12" role="heading">
+            {{ page.header }}
+          </div>
+        {% endblock %}
+      {% endif %}
+
+      {# Sidebar First #}
+      {% if page.sidebar_first %}
+        {% block sidebar_first %}
+          <aside class="col-sm-4" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endblock %}
+      {% endif %}
+
+      {# Content #}
+      {%
+        set content_classes = [
+          page.sidebar_first and page.sidebar_second ? 'col-sm-8',
+          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-8',
+          page.sidebar_second and page.sidebar_first is empty ? 'col-sm-8',
+          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+        ]
+      %}
+      <section class="col-md-8 col-sm-12 col-xs-12 content-page" {{ content_attributes.addClass(content_classes) }}>
+
+        {# Highlighted #}
+        {% if page.highlighted %}
+          {% block highlighted %}
+            <div class="highlighted">{{ page.highlighted }}</div>
+          {% endblock %}
+        {% endif %}
+
+        {# Breadcrumbs #}
+        {% if breadcrumb %}
+          {% block breadcrumb %}
+            {{ breadcrumb }}
+          {% endblock %}
+        {% endif %}
+
+        {# Action Links #}
+        {% if action_links %}
+          {% block action_links %}
+            <ul class="action-links">{{ action_links }}</ul>
+          {% endblock %}
+        {% endif %}
+
+        {# Help #}
+        {% if page.help %}
+          {% block help %}
+            {{ page.help }}
+          {% endblock %}
+        {% endif %}
+
+        {# Content #}
+        {% block content %}
+          <a id="main-content"></a>
+          {{ page.content }}
+        {% endblock %}
+      </section>
+
+      {# Sidebar Second #}
+      {% if page.sidebar_second %}
+        {% block sidebar_second %}
+         
+            <aside class="col-md-4 col-sm-12 col-xs-12 sidebar-second" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+         
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+</section>  
+{% endblock %}   
+<!-- Trending Now End-->
+<div id="back-to-top">
+  <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+</div>
+ <!--Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12 footer-new-post">
+        <h3>{% if news_post_title|render is not empty %}{{ news_post_title }}{% endif %}</h3>
+          {% if news_post_desc %}
+            {% autoescape 'html' %}
+              {{ news_post_desc|raw }}
+            {% endautoescape %}
+          {% endif %}
+        <i class="fa fa-envelope">
+          <a href="mailto:{% if news_post_email|render is not empty %}{{ news_post_email }}{% endif %}">{% if news_post_email|render is not empty %}{{ news_post_email }}{% endif %}</a>
+        </i>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12 footer-popular-post">
+        {{ page.popular_post }}
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 footer-latest-post">
+        <ul>
+          {{ page.latest_post }}
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-12 footer-categories">
+        {{ page.categories }}
+      </div>
+    </div>
+  </div>
+</footer>  
+<div class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-7 col-xs-12">
+       <p>Copyrights 2018. Theme By<a href="https://www.drupaldevelopersstudio.com"> Drupal Developers Studio</a>, A Division of <a href="https://www.youngglobes.com/">Young Globes</a></p>
+
+      </div>
+      <div class="col-md-5 col-sm-5 col-xs-12">
+        <ul>
+          {% if facebook_url|render is not empty %}
+            <li><a href="{{ facebook_url }}"><i class="fa fa-facebook"></i></a></li>
+          {%  endif %}
+          {% if twitter_url|render is not empty %}
+            <li><a href="{{ twitter_url }}"><i class="fa fa-twitter"></i></a></li>
+          {%  endif %}
+          {% if google_plus_url|render is not empty %}
+            <li><a href="{{ google_plus_url }}"><i class="fa fa-google-plus"></i></a></li>
+          {%  endif %}
+          {% if instagram_url|render is not empty %}
+            <li><a href="{{ instagram_url }}"><i class="fa fa-instagram"></i></a></li>
+          {%  endif %}
+          {% if youtube_url|render is not empty %}
+            <li><a href="{{ youtube_url }}"><i class="fa fa-youtube"></i></a></li>
+          {% endif %}
+          {% if snapchat_url|render is not empty %}
+            <li><a href="{{ snapchat_url }}"><i class="fa fa-snapchat-ghost"></i></a></li>
+          {%  endif %}
+          {% if linkedin_url|render is not empty %}
+            <li><a href="{{ linkedin_url }}"><i class="fa fa-linkedin"></i></a></li>
+          {% endif %}
+        </ul>      
+      </div>
+    </div>  
+    </div>
+  </div>
+</section>  
+<!-- Footer-section-end -->
+</main>
+<!-- Main-wrapper End -->

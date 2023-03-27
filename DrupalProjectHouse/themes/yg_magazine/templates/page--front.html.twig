@@ -1,0 +1,223 @@
+
+<main class="main oh" id="main">
+<!-- Topbar -->
+<section id="topbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <ul>
+          <li><h5>
+            <a >{% if news_update_link_text|render is not empty %}{{ news_update_link_text }}{% endif %}</a>
+          </h5></li>
+          {% if facebook_url|render is not empty %}
+            <li><a href="{{ facebook_url }}"><i class="fa fa-facebook"></i></a></li>
+          {% endif %} 
+          {% if twitter_url|render is not empty %}
+           <li><a href="{{ twitter_url }}"><i class="fa fa-twitter"></i></a></li>
+          {% endif %}
+          {% if youtube_url|render is not empty %}
+            <li><a href="{{ youtube_url }}"><i class="fa fa-youtube"></i></a></li>
+          {% endif %} 
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Topbar-End -->
+<!-- Header -->
+  <section class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 logo">
+           <!-- Logo -->
+          <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home""><img src="{{ logopath }}"></a>
+        </div> 
+        <div class="col-md-8 col-sm-6 col-xs-12">        
+          <!-- Ad-Banner -->
+          {{ page.ad_banner }}
+        </div>
+      </div>
+    </div>
+  </section> 
+<!-- Header End--> 
+<!-- Navigation -->
+  <nav id="menu" class="navbar navbar-default">
+    <div class="container">    
+      <div class="navbar-header">
+      {% if page.primary_menu %}
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#magazine_collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      {% endif %}    
+      </div>  
+      <div class="collapse navbar-collapse" id="magazine_collapse">
+        {% if page.primary_menu %}
+          <ul class="nav navbar-nav">                                                       
+            {{ page.primary_menu }}
+          </ul>
+        {% endif %}  
+      </div>   
+    </div>
+  </nav>
+<!-- Navigation End-->
+<!-- Trending Now -->
+<section id="trending-now">
+  <div class="container">
+    {{ page.breaking_news }}
+  </div>  
+</section>
+<!-- Trending Now End-->
+<!-- Slider -->
+<section id="slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-12 col-xs-12 ls">
+        {{ page.slider }}
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12 rs">
+        {{page.slider_right_sidebar }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Slider End -->
+<!-- International News -->
+<section id="tour-and-tranvel" class="international-news">
+  <div class="container">
+    {{ page.international_news }}
+    <!-- international-news-list -->
+    <!-- international-news-list-end -->
+  </div>
+</section>
+<!-- International News End-->
+<!-- Sports Update -->
+<section id=sports-update>
+  <div class="container">
+    <div class="row">
+      {{ page.sports_update }}
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <ul>
+          {{ page.sports_update_right_sidebar }}
+        </ul>
+      </div>
+    </div>
+    <!-- sports-update-youtube -->
+    <div class="sports-update-youtube">
+      <div class="row">
+         {{ page.sports_update_youtube }}
+      </div>
+    </div>
+    <!-- sports-update-youtube-end -->
+  </div>
+</section>
+<!-- Sports Update End -->
+<!-- Entertainment and Lifestyle -->
+<section id="entertainment-and-lifestyle">
+  <div class="container">
+    <div class="top_section">
+      <div class="row">
+        {{ page.entertainment }}
+        <div class="col-md-4 col-sm-12 col-xs-12 right-side">
+          {{ page.entertainment_latest_news }}
+        </div>
+      </div>
+    </div>
+  
+   <div class="middle">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 right-side entertain-news-list">
+          <ul>
+            {{ page.entertainment_news_list }}
+          </ul>
+        </div>
+        {{ page.entertainment_middle }}
+      </div>
+    </div>
+
+  <!-- sports-update-youtube -->
+    <div class="sports-update-youtube">
+      <div class="row">
+        {{ page.entertainment_youtube }}
+      </div>
+    </div>
+    <!-- sports-update-youtube-end -->
+
+  </div>
+</section>
+<!-- Entertainment and Lifestyle End -->
+<!-- Tourism and Travel -->
+<section id="tour-and-tranvel">
+  <div class="container">
+      {{ page.tourism_and_tarvel }}
+  </div>
+</section>    
+<!-- Trending Now End-->
+<div id="back-to-top">
+  <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+</div>
+ <!--Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12 footer-new-post">
+        <h3>{% if news_post_title|render is not empty %}{{ news_post_title }}{% endif %}</h3>
+          {% if news_post_desc %}
+            {% autoescape 'html' %}
+              {{ news_post_desc|raw }}
+            {% endautoescape %}
+          {% endif %}
+        <i class="fa fa-envelope">
+          <a href="mailto:{% if news_post_email|render is not empty %}{{ news_post_email }}{% endif %}">{% if news_post_email|render is not empty %}{{ news_post_email }}{% endif %}</a>
+        </i>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12 footer-popular-post">
+        {{ page.popular_post }}
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 footer-latest-post">
+        <ul>
+          {{ page.latest_post }}
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-12 footer-categories">
+        {{ page.categories }}
+      </div>
+    </div>
+  </div>
+</footer>  
+<div class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-7 col-xs-12">
+        <p>Copyrights 2018. Theme By<a href="https://www.drupaldevelopersstudio.com"> Drupal Developers Studio</a>, A Division of <a href="https://www.youngglobes.com/">Young Globes</a></p>
+
+      </div>
+      <div class="col-md-5 col-sm-5 col-xs-12">
+        <ul>
+          {% if facebook_url|render is not empty %}
+            <li><a href="{{ facebook_url }}"><i class="fa fa-facebook"></i></a></li>
+          {%  endif %}
+          {% if twitter_url|render is not empty %}
+            <li><a href="{{ twitter_url }}"><i class="fa fa-twitter"></i></a></li>
+          {%  endif %}
+          {% if google_plus_url|render is not empty %}
+            <li><a href="{{ google_plus_url }}"><i class="fa fa-google-plus"></i></a></li>
+          {%  endif %}
+          {% if instagram_url|render is not empty %}
+            <li><a href="{{ instagram_url }}"><i class="fa fa-instagram"></i></a></li>
+          {%  endif %}
+          {% if youtube_url|render is not empty %}
+            <li><a href="{{ youtube_url }}"><i class="fa fa-youtube"></i></a></li>
+          {% endif %}
+          {% if snapchat_url|render is not empty %}
+            <li><a href="{{ snapchat_url }}"><i class="fa fa-snapchat-ghost"></i></a></li>
+          {% endif %}
+          {% if linkedin_url|render is not empty %}
+            <li><a href="{{ linkedin_url }}"><i class="fa fa-linkedin"></i></a></li>
+          {% endif %}  
+        </ul>      
+      </div>
+    </div>  
+    </div>
+  </div>
+</section>  
+<!-- Footer-section-end -->
+</main>
+<!-- Main-wrapper End -->

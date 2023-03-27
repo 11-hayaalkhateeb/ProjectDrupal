@@ -1,0 +1,43 @@
+name : YG Magazine  
+description: 'Designed & Developed by <a href=https://www.youngglobes.com/>Young Globes</a><br/>Contact us for any kind of Drupal services <a href=mailto:youngglobes@gmail.com>youngglobes@gmail.com</a>'
+core_version_requirement: ^8.8 || ^9
+type: theme 
+screenshot: screenshot.png
+base theme: classy
+
+#Libraries
+libraries:
+  - yg_magazine/global-style
+  - yg_magazine/fontawesome
+
+#Regions
+regions:
+  header: 'Header'
+  ad_banner: 'Ad Banner'
+  primary_menu: 'Primary Menu'
+  content: 'Content'
+  breaking_news: 'Breaking News'
+  slider: 'Slider'
+  slider_right_sidebar: 'Slider Right Siderbar'
+  international_news: 'International News'
+  sports_update: 'Sports Update'
+  sports_update_right_sidebar: 'Sports Update Right Siderbar'
+  sports_update_youtube: 'Sports Update Youtube'
+  entertainment: 'Entertainment'
+  entertainment_middle: 'Entertainment News'
+  entertainment_latest_news: 'Entertainment Latest News(right_sidebar)'
+  entertainment_news_list: 'Entertainment News List(right_sidebar)'
+  entertainment_youtube: 'Entertainment Youtube'
+  tourism_and_tarvel: 'Tourism And Travel'
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'  
+  popular_post: 'Popular Post'
+  latest_post: 'Latest Post'
+  categories: 'Categories'
+
+  
+
+# Information added by Drupal.org packaging script on 2020-08-24
+version: '2.0.0'
+project: 'yg_magazine'
+datestamp: 1598279593

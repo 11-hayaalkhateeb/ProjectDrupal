@@ -1,0 +1,72 @@
+<?php
+/**
+ * Implements hook_preprocess_page() for block templates.
+ */
+
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Template\Attribute;
+use Drupal\file\Plugin\Core\Entity\FileInterface;
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function yg_magazine_preprocess_page(&$variables) {
+  $variables['basepath'] = $GLOBALS['base_url'];
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+  // Topbar-news-update
+  $variables['news_update_link_text'] = theme_get_setting('news_update_link_text');
+  $variables['top_news_update_url'] = theme_get_setting('top_news_update_url');
+ // social links 
+  $variables['facebook_url'] = theme_get_setting('facebook_url');
+  $variables['twitter_url'] = theme_get_setting('twitter_url');
+  $variables['google_plus_url'] = theme_get_setting('google_plus_url');
+  $variables['instagram_url'] = theme_get_setting('instagram_url'); 
+  $variables['youtube_url'] = theme_get_setting('youtube_url'); 
+  $variables['linkedin_url'] = theme_get_setting('linkedin_url'); 
+  // contact info
+  $variables['news_post_title'] = theme_get_setting('news_post_title');
+  $variables['news_post_desc'] = theme_get_setting('news_post_desc'); 
+    $variables['news_post_desc'] = $variables['news_post_desc']['value'];
+  $variables['news_post_email'] = theme_get_setting('news_post_email');
+  $variables['youtube'] = views_embed_view('news', 'block_7');
+
+
+}
+// function yg_magazine_preprocess_views_view(&$variables) {
+//   $view = $variables['view'];
+//   if ($view->name == 'news' && $view->current_display == 'block_1') {
+//     $view_title = $view->getTitle();
+//   }
+//    // if ($view->id() == 'viewid') {
+//    //  // Set the view title.
+//    //  $view->setTitle('NEW TITLE');
+//    // }
+// }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function yg_magazine_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Get Request Object.
+  $request = \Drupal::request();
+  // If there is HTTP Exception..
+  if ($exception = $request->attributes->get('exception')) {
+    // Get the status code.
+    $status_code = $exception->getStatusCode();
+    if (in_array($status_code, array(401, 403, 404))) {
+      $suggestions[] = 'page__' . $status_code;
+    }
+  }
+}  
+
+function yg_magazine_theme(&$existing, $type, $theme, $path) {
+  $hooks = array();
+  $hooks['user_login_form'] = array(
+      'render element' => 'form',
+      'template' => 'user-login-form',
+  );
+  return $hooks;
+}

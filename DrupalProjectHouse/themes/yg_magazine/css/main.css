@@ -1,0 +1,185 @@
+h1.js-quickedit-page-title.page-title, h1.page-title {
+    padding: 10px 18px;
+    font-weight: bolder;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 23px;
+    width: auto;
+    background: #35599e;
+    color: #fff;
+    border-left: 15px solid #f9b01a;
+    margin: 0px;
+}
+/*Main-Menu*/
+.navbar-default .navbar-toggle {
+    border: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    border-color: #ddd;
+    border-radius: 0;
+    background: transparent !important;
+}
+nav#block-mainnavigation ul li {
+    display: inline-block !important;
+    list-style: none;
+}
+nav#block-mainnavigation ul {
+    padding: 0;
+    margin: 0px;
+}
+.navbar-nav {
+    padding: 13px 0 !important;
+}
+/*nav#block-mainnavigation ul li a.is-active, nav#block-mainnavigation ul li a:hover {
+    color: #f7292b;
+    text-decoration: none;
+}*/
+nav#block-mainnavigation ul > li > a {
+	font-size: 15px;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0;
+    margin: 0px 2px;
+}
+.menu > li > a {
+    position: relative;
+    display: block;
+    padding: 0px 15px !important;
+}
+.navbar-nav {
+    padding: 15px 0px;
+}
+nav#block-mainnavigation ul {
+    padding: 0px;
+}
+/*trending-now*/
+#trending-now .item p {
+    display: inline-block;
+}
+
+/*Sports-Update*/
+#sports-update ul li:first-child {
+    padding: 1px 0px 20px 0;
+}
+h2#block-footer-menu, #block-views-block-news-block-11 h2, #block-views-block-news-block-12 h2 {
+    color: #fff !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+}
+.footer-categories ul li a {
+    color: #eee !important;
+}
+.footer-categories ul li a:hover {
+    color: #337ab7 !important;
+}
+.slider-latest-news-list ul {
+    padding: 20px 25px 51px !important;
+}
+
+.magazine-list-details-item .sports-update-youtube .fa {
+    top: 150px;
+    left: 300px;
+}
+ul.order li .field.field--name-field-relevant-news-list1 div:before {
+    content: "\f0a4";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding: 0px 15px;
+    font-size: 13px;
+}
+ul.unorder li ..field.field--name-field-relevant-news-list1 div:before {
+    content: "\f138" !important;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding: 0px 15px;
+    font-size: 13px;
+}
+.bg-color1:before {
+    bottom: 168px !important;
+}
+.middle .col-md-8.col-sm-12.col-xs-12.item {
+    padding-right: 0px;
+}
+#entertainment-and-lifestyle .middle .bg-color {
+    height: 303px;
+}
+#entertainment-and-lifestyle .middle .first.bg-color {
+    height: 312px;
+}
+#sports-update .international-news-title {
+    bottom: 84px;
+}
+.right-side.entertain-news-list {
+    float: right;
+}
+#sports-update ul.contextual-links, #entertainment-and-lifestyle .right-side ul.contextual-links, 
+.region-primary-menu ul.contextual-link {
+	height: auto;
+	overflow: hidden;
+    padding: 0px;
+}
+#sports-update ul.contextual-links li,  #entertainment-and-lifestyle .right-side ul.contextual-links li, 
+{
+    color: inherit; 
+    padding: 0px;
+    display: block !important;
+}
+#sports-update ul.contextual-links li a, #entertainment-and-lifestyle .right-side ul.contextual-links li a,
+.footer-categories ul.contextual-links li a, .region-primary-menu ul.contextual-link li a{
+    color: #000 !important;
+    font-size: inherit !important;
+    padding: 0px;
+    font-weight: 100; 
+}
+ul.contextual-links li {
+    display: block !important;
+}
+.magazine-list-details-item.right-side {
+    padding: 10px 15px;
+}
+.footer-categories ul li a{
+    padding: 0px !important;
+}
+@media(min-width: 320px) and (max-width: 767px) {
+	nav#block-mainnavigation ul li {
+    	display: block!important;
+    	padding: 10px 0px;
+	}
+} 
+@media(min-width: 450px) and (max-width: 990px) {
+	#sports-update ul li{
+	    padding: 25px 10px !important;
+	}
+	.middle .col-md-8.col-sm-12.col-xs-12.item {
+	    padding-right: 15px;
+	}
+	.top_section .right-side img{
+		width: 100%;
+	}
+}	
+@media (min-width: 768px) and (max-width: 992px) {
+.menu > li > a{
+    padding: 0px 7px !important;
+}
+}
+@media (max-width: 990px) and (min-width: 320px){
+	.top_section .right-side img {
+    width: 100%;
+	}
+}
+
+.logo img{
+    padding-top: 25px;
+}
+.view-id-ad_banner img{
+    width: 100%;
+}
